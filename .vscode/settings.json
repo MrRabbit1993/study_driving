@@ -1,0 +1,7 @@
+{
+  "npm-intellisense.scanDevDependencies": true,
+  "path-intellisense.mappings": {
+      "@/": "${workspaceRoot}/src"
+  },
+  "editor.tabSize": 2
+}

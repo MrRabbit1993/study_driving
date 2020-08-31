@@ -1,0 +1,8 @@
+/config/
+/node_modules/
+/dist/
+assets/js/**.min.js
+/test/unit/coverage/
+/src/views/
+/src/utils/socket.js
+/public/

@@ -49,3 +49,12 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ├── App.vue                 入口
 └── main.js                 入口
 ```
+## 概要图
+![](md/img14.png)
+## 施工流程
+![](md/img10.png)
+![](md/img8.png)
+
+
+## 页面执行流程
+![](md/img11.png)

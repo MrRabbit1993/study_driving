@@ -7,7 +7,7 @@ export default {
     return{
       title:"demo测试1",
       value:{
-        value: 12,
+        value: "000",
         unit: "亩"
       },
       info:[{
@@ -19,8 +19,12 @@ export default {
     }
   },
   methods:{
-    updateInfo(){
-
+    updateInfo(item){
+      const {id,name} = item
+      this.title = name
+      this.info[0].prefix = name
+      this.info[0].percent = id
+      this.value.value = `${id}00`
     }
   },
   render(){

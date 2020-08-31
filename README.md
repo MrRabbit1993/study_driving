@@ -50,7 +50,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 └── main.js                 入口
 ```
 ## 概要图
-![image](https://github.com/MrRabbit1993/study_driving/raw/master/md/img14.png)
+[<img src="https://github.com/MrRabbit1993/study_driving/tree/master/md/img14.png" width="100%"/>]
+![image](https://github.com/MrRabbit1993/study_driving/tree/master/md/img14.png)
+md/img14.png
 ## 施工流程
 ![image](md/img10.png)
 ![](md/img8.png)

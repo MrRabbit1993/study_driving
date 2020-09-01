@@ -10,249 +10,249 @@ export default {
     return {};
   },
   methods: {
-    handle(getMsg) {
-      var that = this
-      var mesg = getMsg.split("-");
-      // console.log(mesg);
-      //跳转到首页
-      if (mesg[0] == "p1") {
-        if (mesg[1] == "home") {
-          this.$router.push({
-            path: "/homepage"
-          });
-        }
-      }
-      //跳转到第二页面
-      if (mesg[0] == "p2") {
-        if (mesg[1] == "back") {
-          this.$router.push({
-            path: "/index",
-            query: {
-              fieldCode: mesg[2],
-              code: mesg[3]
-            }
-          });
-        } else if (mesg[2] == "城管" || mesg[2] == "城市管理" || mesg[2] == "城市管理局") {
-          this.$router.push({
-            path: "/cityManagement",
-          })
-        } else {
-          this.$router.push({
-            path: "/index",
-            query: {
-              fieldCode: mesg[1],
-              code: mesg[2]
-            }
-          });
-        }
-      }
-      //跳转到第三页面
-      if (mesg[0] == "p3") {
-        if (mesg[1] == "back") {
-          this.$router.go(-1);
-        } else if (mesg[1] == "home") {
-          this.$router.push({
-            path: "/homepage"
-          });
-        } else {
-          this.$router.push({
-            path: "/detail",
-            query: {
-              codeName: mesg[2],
-              exponentId: mesg[1]
-            }
-          });
-        }
-      }
-      //页面模式切换
-      if (mesg[0] == 'model1') {
-        this.$router.push({
-          path: "/detail",
-          query: {
-            codeName: this.$route.query.codeName,
-            exponentId: this.$route.query.exponentId
-          }
-        })
-      }
-      //瀑布流模式切换
-      if (mesg[0] == 'model2') {
-        this.$router.push({
-          path: "/select",
-          query: {
-            codeName: this.$route.query.codeName,
-            exponentId: this.$route.query.exponentId
-          }
-        })
-      }
-      // if (mesg[0] == 'scene') {
-      //     if(that.$route.path=='/iframe'){
-      //         if (mesg[1] == 0) {
-      //             var _id = 'bm'
-      //         } else if (mesg[1] == 1) {
-      //             var _id = 'jd'
-      //         } else if (mesg[1] == 2) {
-      //             var _id = 'zt'
-      //         } else if (mesg[1] == 3) {
-      //             var _id = 'qdly'
-      //         }
-      //         this.$router.push({
-      //             path: "/iframe",
-      //             query: {
-      //                 id:_id
-      //             }
-      //         })
-      //     } else{
-      //         if (mesg[1] == 0) {
-      //             $('#bm').trigger('click')
-      //         } else if (mesg[1] == 1) {
-      //             $('#jd').trigger('click')
-      //         } else if (mesg[1] == 2) {
-      //             $('#zt').trigger('click')
-      //         } else if (mesg[1] == 3) {
-      //             $('#qdly').trigger('click')
-      //         }
-      //     }
-      // }
-      if (mesg[0] == 'scene') {
-        console.log('h' + mesg[1])
-        if (that.$route.path == '/homepage') {
-          if (mesg[1] == 0) {
-            $('#jd').trigger('click')
-          } else if (mesg[1] == 1) {
-            $('#tsxs').trigger('click')
-          } else if (mesg[1] == 2) {
-            $('#zt').trigger('click')
-          }
-        } else {
-          if (mesg[1] == 0) {
-            var _id = 'jd'
-            this.$router.push({
-              path: "/iframe",
-              query: {
-                id: _id
-              }
-            })
-          } else if (mesg[1] == 1) {
-            var _id = 'tsxs'
-            this.$router.push({
-              path: "/perspectiveXS"
-            })
-          } else if (mesg[1] == 2) {
-            var _id = 'zt'
-            this.$router.push({
-              path: "/theme"
-            })
-          }
+    // handle(getMsg) {
+    //   var that = this
+    //   var mesg = getMsg.split("-");
+    //   // console.log(mesg);
+    //   //跳转到首页
+    //   if (mesg[0] == "p1") {
+    //     if (mesg[1] == "home") {
+    //       this.$router.push({
+    //         path: "/homepage"
+    //       });
+    //     }
+    //   }
+    //   //跳转到第二页面
+    //   if (mesg[0] == "p2") {
+    //     if (mesg[1] == "back") {
+    //       this.$router.push({
+    //         path: "/index",
+    //         query: {
+    //           fieldCode: mesg[2],
+    //           code: mesg[3]
+    //         }
+    //       });
+    //     } else if (mesg[2] == "城管" || mesg[2] == "城市管理" || mesg[2] == "城市管理局") {
+    //       this.$router.push({
+    //         path: "/cityManagement",
+    //       })
+    //     } else {
+    //       this.$router.push({
+    //         path: "/index",
+    //         query: {
+    //           fieldCode: mesg[1],
+    //           code: mesg[2]
+    //         }
+    //       });
+    //     }
+    //   }
+    //   //跳转到第三页面
+    //   if (mesg[0] == "p3") {
+    //     if (mesg[1] == "back") {
+    //       this.$router.go(-1);
+    //     } else if (mesg[1] == "home") {
+    //       this.$router.push({
+    //         path: "/homepage"
+    //       });
+    //     } else {
+    //       this.$router.push({
+    //         path: "/detail",
+    //         query: {
+    //           codeName: mesg[2],
+    //           exponentId: mesg[1]
+    //         }
+    //       });
+    //     }
+    //   }
+    //   //页面模式切换
+    //   if (mesg[0] == 'model1') {
+    //     this.$router.push({
+    //       path: "/detail",
+    //       query: {
+    //         codeName: this.$route.query.codeName,
+    //         exponentId: this.$route.query.exponentId
+    //       }
+    //     })
+    //   }
+    //   //瀑布流模式切换
+    //   if (mesg[0] == 'model2') {
+    //     this.$router.push({
+    //       path: "/select",
+    //       query: {
+    //         codeName: this.$route.query.codeName,
+    //         exponentId: this.$route.query.exponentId
+    //       }
+    //     })
+    //   }
+    //   // if (mesg[0] == 'scene') {
+    //   //     if(that.$route.path=='/iframe'){
+    //   //         if (mesg[1] == 0) {
+    //   //             var _id = 'bm'
+    //   //         } else if (mesg[1] == 1) {
+    //   //             var _id = 'jd'
+    //   //         } else if (mesg[1] == 2) {
+    //   //             var _id = 'zt'
+    //   //         } else if (mesg[1] == 3) {
+    //   //             var _id = 'qdly'
+    //   //         }
+    //   //         this.$router.push({
+    //   //             path: "/iframe",
+    //   //             query: {
+    //   //                 id:_id
+    //   //             }
+    //   //         })
+    //   //     } else{
+    //   //         if (mesg[1] == 0) {
+    //   //             $('#bm').trigger('click')
+    //   //         } else if (mesg[1] == 1) {
+    //   //             $('#jd').trigger('click')
+    //   //         } else if (mesg[1] == 2) {
+    //   //             $('#zt').trigger('click')
+    //   //         } else if (mesg[1] == 3) {
+    //   //             $('#qdly').trigger('click')
+    //   //         }
+    //   //     }
+    //   // }
+    //   if (mesg[0] == 'scene') {
+    //     console.log('h' + mesg[1])
+    //     if (that.$route.path == '/homepage') {
+    //       if (mesg[1] == 0) {
+    //         $('#jd').trigger('click')
+    //       } else if (mesg[1] == 1) {
+    //         $('#tsxs').trigger('click')
+    //       } else if (mesg[1] == 2) {
+    //         $('#zt').trigger('click')
+    //       }
+    //     } else {
+    //       if (mesg[1] == 0) {
+    //         var _id = 'jd'
+    //         this.$router.push({
+    //           path: "/iframe",
+    //           query: {
+    //             id: _id
+    //           }
+    //         })
+    //       } else if (mesg[1] == 1) {
+    //         var _id = 'tsxs'
+    //         this.$router.push({
+    //           path: "/perspectiveXS"
+    //         })
+    //       } else if (mesg[1] == 2) {
+    //         var _id = 'zt'
+    //         this.$router.push({
+    //           path: "/theme"
+    //         })
+    //       }
 
-        }
-      }
-      // if (mesg[0] == 'toolshow') {
-      //     $('.ball-menu .ball').trigger('click')
-      // }
-      if (mesg[0] == 'tool') {
-        if (mesg[1] == 0) {
-        } else if (mesg[1] == 1) {
-        } else if (mesg[1] == 2) {
-        } else if (mesg[1] == 3) {
-          $('#db').trigger('click')
-        } else if (mesg[1] == '取消') {
-          $('.ball-menu .ball').trigger('click')
-        }
-      }
-      if (mesg[0] == 'modelChange' && mesg[1] != '') {
-        this.$router.push({
-          path: '/select',
-          query: {
-            parentId: mesg[1],
-            exponentId: null,
-            codeName: mesg[2]
-          }
-        })
-      }
-      if (mesg[0] == 'compare') {
-        let name = mesg[1]
-        let queryArr = [
-          {
-            text: '基准指标',
-            code: '1',
-            isBase: true //basecode
-          },
-          {
-            text: '新塘街道',
-            code: '4',
-            isBase: false
-          },
-          {
-            text: "宁围街道",
-            code: 15,
-            isBase: false
-          },
-          {
-            text: "城厢街道",
-            code: 1,
-            isBase: false
-          }
-        ]
-        console.log(name)
-        if (name == '地区单项') {
-          console.log(1)
-          this.$router.push({
-            path: "/contrastRes/0",
-            query: {
-              fieldText: '城管',
-              // firstText: '宁围街道',
-              // secondText: '城厢街道',
-              fieldCode: 13,
-              // firstCode: 15,
-              // secondCode: 1,
-              queryArr: JSON.stringify([queryArr[2], queryArr[3]])
-            }
-          })
-        } else if (name == '地区多项') {
-          console.log(2)
-          this.$router.push({
-            path: "/contrastRes/0",
-            query: {
-              fieldText: '城管',
-              // firstText: '宁围街道',
-              // secondText: '城厢街道',
-              fieldCode: 13,
-              // firstCode: 15,
-              // secondCode: 1,
-              queryArr: JSON.stringify([queryArr[1], queryArr[2], queryArr[3]])
-            }
-          })
-        } else if (name == '基准单项') {
-          console.log(3)
-          this.$router.push({
-            path: "/contrastRes/0",
-            query: {
-              fieldText: '城管',
-              // firstText: '宁围街道',
-              // secondText: '城厢街道',
-              fieldCode: 13,
-              // firstCode: 15,
-              // secondCode: 1,
-              queryArr: JSON.stringify([queryArr[0], queryArr[2]])
-            }
-          })
-        } else if (name == '基准多项') {
-          console.log(4)
-          this.$router.push({
-            path: "/contrastRes/0",
-            query: {
-              fieldText: '城管',
-              // firstText: '宁围街道',
-              // secondText: '城厢街道',
-              fieldCode: 13,
-              // firstCode: 15,
-              // secondCode: 1,
-              queryArr: JSON.stringify([queryArr[0], queryArr[1], queryArr[2]])
-            }
-          })
-        }
-      }
-    },
+    //     }
+    //   }
+    //   // if (mesg[0] == 'toolshow') {
+    //   //     $('.ball-menu .ball').trigger('click')
+    //   // }
+    //   if (mesg[0] == 'tool') {
+    //     if (mesg[1] == 0) {
+    //     } else if (mesg[1] == 1) {
+    //     } else if (mesg[1] == 2) {
+    //     } else if (mesg[1] == 3) {
+    //       $('#db').trigger('click')
+    //     } else if (mesg[1] == '取消') {
+    //       $('.ball-menu .ball').trigger('click')
+    //     }
+    //   }
+    //   if (mesg[0] == 'modelChange' && mesg[1] != '') {
+    //     this.$router.push({
+    //       path: '/select',
+    //       query: {
+    //         parentId: mesg[1],
+    //         exponentId: null,
+    //         codeName: mesg[2]
+    //       }
+    //     })
+    //   }
+    //   if (mesg[0] == 'compare') {
+    //     let name = mesg[1]
+    //     let queryArr = [
+    //       {
+    //         text: '基准指标',
+    //         code: '1',
+    //         isBase: true //basecode
+    //       },
+    //       {
+    //         text: '新塘街道',
+    //         code: '4',
+    //         isBase: false
+    //       },
+    //       {
+    //         text: "宁围街道",
+    //         code: 15,
+    //         isBase: false
+    //       },
+    //       {
+    //         text: "城厢街道",
+    //         code: 1,
+    //         isBase: false
+    //       }
+    //     ]
+    //     console.log(name)
+    //     if (name == '地区单项') {
+    //       console.log(1)
+    //       this.$router.push({
+    //         path: "/contrastRes/0",
+    //         query: {
+    //           fieldText: '城管',
+    //           // firstText: '宁围街道',
+    //           // secondText: '城厢街道',
+    //           fieldCode: 13,
+    //           // firstCode: 15,
+    //           // secondCode: 1,
+    //           queryArr: JSON.stringify([queryArr[2], queryArr[3]])
+    //         }
+    //       })
+    //     } else if (name == '地区多项') {
+    //       console.log(2)
+    //       this.$router.push({
+    //         path: "/contrastRes/0",
+    //         query: {
+    //           fieldText: '城管',
+    //           // firstText: '宁围街道',
+    //           // secondText: '城厢街道',
+    //           fieldCode: 13,
+    //           // firstCode: 15,
+    //           // secondCode: 1,
+    //           queryArr: JSON.stringify([queryArr[1], queryArr[2], queryArr[3]])
+    //         }
+    //       })
+    //     } else if (name == '基准单项') {
+    //       console.log(3)
+    //       this.$router.push({
+    //         path: "/contrastRes/0",
+    //         query: {
+    //           fieldText: '城管',
+    //           // firstText: '宁围街道',
+    //           // secondText: '城厢街道',
+    //           fieldCode: 13,
+    //           // firstCode: 15,
+    //           // secondCode: 1,
+    //           queryArr: JSON.stringify([queryArr[0], queryArr[2]])
+    //         }
+    //       })
+    //     } else if (name == '基准多项') {
+    //       console.log(4)
+    //       this.$router.push({
+    //         path: "/contrastRes/0",
+    //         query: {
+    //           fieldText: '城管',
+    //           // firstText: '宁围街道',
+    //           // secondText: '城厢街道',
+    //           fieldCode: 13,
+    //           // firstCode: 15,
+    //           // secondCode: 1,
+    //           queryArr: JSON.stringify([queryArr[0], queryArr[1], queryArr[2]])
+    //         }
+    //       })
+    //     }
+    //   }
+    // },
     handleText(received, screenId) {
       var msg = ''
       if (received.indexOf('-') > -1) {
